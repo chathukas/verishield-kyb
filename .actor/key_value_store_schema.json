@@ -1,0 +1,12 @@
+{
+  "actorKeyValueStoreSchemaVersion": 1,
+  "title": "VeriShield Key-Value Store Schema",
+  "collections": {
+    "reports": {
+      "title": "Executive HTML Compliance Certificates",
+      "description": "White-label print/PDF-ready HTML Executive KYB & Compliance Certificates.",
+      "keyPrefix": "REPORT_",
+      "contentTypes": ["text/html"]
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "VeriShield KYB & Compliance Audit Output",
+  "description": "Verified vendor KYB dataset records and Executive HTML Compliance Certificates.",
+  "type": "object",
+  "properties": {
+    "vendorsDataset": {
+      "type": "string",
+      "title": "Verified Vendors Dataset",
+      "description": "Structured KYB, GLEIF LEI, EU VIES VAT, SEC EDGAR, and NIS2/EAA domain compliance results.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "executiveCertificates": {
+      "type": "string",
+      "title": "Executive HTML Compliance Certificates",
+      "description": "Print/PDF-ready White-Label HTML Compliance Certificates stored in the Key-Value Store.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/keys?collection=reports"
+    }
+  }
+}
