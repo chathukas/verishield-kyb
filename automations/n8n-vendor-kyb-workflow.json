@@ -17,7 +17,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://api.apify.com/v2/acts/verishield~verishield-kyb-compliance-engine/run-sync-get-dataset-items",
+        "url": "https://api.apify.com/v2/acts/stippled_wit~verishield-kyb-compliance-engine/run-sync-get-dataset-items",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [

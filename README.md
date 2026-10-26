@@ -28,9 +28,9 @@ In a single execution, VeriShield queries official global registries and live do
 ## 🚀 Three Ways to Run VeriShield
 
 ### 1. Apify Cloud Actor (Pay-Per-Event API & Bulk UI)
-Run bulk vendor lists directly in the Apify Console or via the synchronous REST API:
+Run bulk vendor lists directly in the [Apify Console](https://apify.com/stippled_wit/verishield-kyb-compliance-engine) or via the synchronous REST API:
 ```bash
-curl -X POST "https://api.apify.com/v2/acts/verishield~verishield-kyb-compliance-engine/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN" \
+curl -X POST "https://api.apify.com/v2/acts/stippled_wit~verishield-kyb-compliance-engine/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
     "vendors": [

@@ -167,22 +167,23 @@
         Stop stitching together 6 separate government registries and security scanners. Verify legal entity status, cross-border EU VAT, SEC filings, email anti-spoofing (SPF/DMARC), NIS2 security headers, and EU EAA/GDPR signals with instant White-Label Executive HTML Certificates.
       </p>
       <div class="cta-row">
-        <a href="#pricing" class="btn btn-primary">Run Cloud Actor on Apify ($3 / 1k Vendors)</a>
+        <a href="https://apify.com/stippled_wit/verishield-kyb-compliance-engine" class="btn btn-primary">Run Cloud Actor on Apify ($3 / 1k Vendors)</a>
         <a href="#pricing" class="btn btn-outline">Download Offline CLI &amp; White-Label Agency Pack ($29)</a>
       </div>
     </section>
 
     <section>
-      <pre><code>// 1-Command CLI or MCP Agent Execution:
-$ npx verishield-kyb --company "Siemens AG" --domain "siemens.com" --vat "DE129273398"
+      <pre><code>// 1-Command CLI or Apify Cloud REST API Execution:
+$ curl -X POST "https://api.apify.com/v2/acts/stippled_wit~verishield-kyb-compliance-engine/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN" \\
+  -H "Content-Type: application/json" \\
+  -d '{"vendors":[{"companyName":"Siemens Aktiengesellschaft","domain":"siemens.com","vatNumber":"DE129273398","countryCode":"DE"}]}'
 
-✓ Audited: Siemens Aktiengesellschaft [Audit ID: VS-8F92A1B0]
-  Overall Score: 100/100 (Grade A+) — AUTO_APPROVE_ELIGIBLE
+✓ Audited: Siemens Aktiengesellschaft [LEI: W38RGI023J3WT1HWRP32]
+  Overall Score: 87/100 (Grade A) — AUTO_APPROVE_ELIGIBLE
   + Verified Active Global LEI (W38RGI023J3WT1HWRP32) — Jurisdiction: DE (HRB 6684)
   + Validated EU VIES VAT (DE129273398) — Siemens AG
-  + SPF (-all) &amp; Enforced DMARC (p=reject) Anti-Phishing Verified
-  + NIS2 HTTP Security Headers Grade A+ (HSTS, CSP, X-Frame-Options, nosniff, Referrer-Policy)
-  + Executive White-Label HTML Certificate generated in 38ms</code></pre>
+  + SPF &amp; Enforced DMARC Anti-Phishing Verified
+  + Executive White-Label HTML Certificate generated in Key-Value Store</code></pre>
     </section>
 
     <section id="pricing">
@@ -199,7 +200,7 @@ $ npx verishield-kyb --company "Siemens AG" --domain "siemens.com" --vat "DE1292
             <li>Native Apify MCP Server (<code>mcp.apify.com</code>) integration</li>
             <li>Automatic Executive HTML Report storage ($0.005/report)</li>
           </ul>
-          <a href="https://apify.com/store" class="btn btn-primary" style="width:100%;text-align:center;margin-top:12px;">Launch on Apify Store</a>
+          <a href="https://apify.com/stippled_wit/verishield-kyb-compliance-engine" class="btn btn-primary" style="width:100%;text-align:center;margin-top:12px;">Launch on Apify Store</a>
         </div>
 
         <div class="card" style="border-color:var(--accent);">
