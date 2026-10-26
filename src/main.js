@@ -83,15 +83,8 @@ async function run() {
     datasetItem.reportFileName = options.generateHtmlReport ? reportKey : null;
 
     if (Actor) {
+      // Triggers native `apify-default-dataset-item` PPE billing automatically
       await Actor.pushData(datasetItem);
-      // Trigger Pay-Per-Event (PPE) billing event for verified vendor record
-      if (typeof Actor.charge === 'function') {
-        try {
-          await Actor.charge({ eventName: 'vendor-verified', count: 1 });
-        } catch (chargeErr) {
-          console.warn('[VeriShield] Actor.charge(vendor-verified) notice:', chargeErr.message);
-        }
-      }
 
       if (htmlReport && options.generateHtmlReport) {
         await Actor.setValue(reportKey, htmlReport, { contentType: 'text/html' });
