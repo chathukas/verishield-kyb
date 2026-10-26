@@ -1,0 +1,71 @@
+{
+  "title": "VeriShield B2B Vendor KYB & Regulatory Compliance Audit Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "vendors": {
+      "title": "Vendors List (Bulk KYB & Domain Audit)",
+      "type": "array",
+      "description": "Array of vendor objects to verify across GLEIF (LEI), EU VIES (VAT), US SEC EDGAR (CIK/Ticker), HHS NPPES (NPI), and live domain security/compliance checks.",
+      "editor": "json",
+      "default": [
+        {
+          "companyName": "Apple Inc.",
+          "domain": "apple.com",
+          "ticker": "AAPL",
+          "countryCode": "US"
+        },
+        {
+          "companyName": "Siemens Aktiengesellschaft",
+          "domain": "siemens.com",
+          "vatNumber": "DE129273398",
+          "countryCode": "DE"
+        }
+      ]
+    },
+    "enableGleif": {
+      "title": "Check Global Legal Entity Identifier (GLEIF LEI)",
+      "type": "boolean",
+      "description": "Verify legal entity status, jurisdiction, registration authority, and HQ address against the official GLEIF database.",
+      "default": true
+    },
+    "enableVies": {
+      "title": "Check European Commission VIES VAT Registry",
+      "type": "boolean",
+      "description": "Validate EU/XI cross-border VAT numbers in real time via the official EU VIES system.",
+      "default": true
+    },
+    "enableSec": {
+      "title": "Check US SEC EDGAR Filings & CIK",
+      "type": "boolean",
+      "description": "Verify US publicly traded entities, CIK, SIC industry code, and recent 10-K/10-Q/8-K filings.",
+      "default": true
+    },
+    "enableNppes": {
+      "title": "Check US HHS NPPES NPI Healthcare Registry",
+      "type": "boolean",
+      "description": "Verify US healthcare providers and medical suppliers in the official CMS NPPES NPI registry.",
+      "default": false
+    },
+    "enableDomainAudit": {
+      "title": "Audit Corporate Domain (SPF, DMARC, NIS2 Headers, GDPR & EAA Signals)",
+      "type": "boolean",
+      "description": "Inspect DNS email anti-spoofing records (SPF/DMARC/MX), HTTP security headers (HSTS, CSP, X-Frame-Options), security.txt, and GDPR/EAA web compliance signals.",
+      "default": true
+    },
+    "generateHtmlReport": {
+      "title": "Generate White-Label Executive HTML Compliance Certificates",
+      "type": "boolean",
+      "description": "Store a print/PDF-ready HTML Executive Compliance Certificate in the Key-Value Store for each audited vendor.",
+      "default": true
+    },
+    "whiteLabelBrandName": {
+      "title": "White-Label Brand Name (For Agency / Enterprise Reports)",
+      "type": "string",
+      "description": "Custom company or compliance team name displayed at the top of generated HTML Compliance Certificates.",
+      "editor": "textfield",
+      "default": "VeriShield KYB & Compliance Intelligence"
+    }
+  },
+  "required": ["vendors"]
+}

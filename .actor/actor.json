@@ -1,0 +1,17 @@
+{
+  "actorSpecification": 1,
+  "name": "verishield-kyb-compliance-engine",
+  "title": "B2B Vendor KYB, GLEIF LEI, EU VIES VAT, SEC & NIS2/EAA Compliance Auditor",
+  "description": "Automated B2B Vendor KYB & Regulatory Compliance Engine. Verifies global legal entities via GLEIF (LEI), EU VIES (VAT), US SEC EDGAR (CIK/Ticker), HHS NPPES (NPI), and audits corporate domains for SPF/DMARC, NIS2 HTTP security headers, GDPR consent, and EU EAA accessibility signals with white-label HTML certificates.",
+  "version": "1.0",
+  "meta": {
+    "templateId": "js-empty",
+    "seoTitle": "B2B Vendor KYB, GLEIF LEI, EU VAT VIES & NIS2 Domain Compliance API",
+    "seoDescription": "Automate B2B vendor onboarding, KYB verification, GLEIF LEI lookup, EU VIES VAT validation, SEC EDGAR checks, and NIS2/GDPR/EAA domain compliance scoring via API or MCP."
+  },
+  "input": "./input_schema.json",
+  "dockerfile": "../Dockerfile",
+  "storages": {
+    "dataset": "./dataset_schema.json"
+  }
+}

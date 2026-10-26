@@ -1,0 +1,35 @@
+{
+  "name": "verishield-kyb-compliance-engine",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Automated B2B Vendor KYB, Global Entity Registry (GLEIF LEI, EU VIES VAT, SEC EDGAR, NPPES NPI) & Domain Security/Regulatory Compliance Audit Engine (Apify PPE Actor + MCP Server + CLI)",
+  "main": "src/main.js",
+  "bin": {
+    "verishield-kyb": "./src/cli.js",
+    "verishield-mcp": "./src/mcp-server.js"
+  },
+  "scripts": {
+    "start": "node src/main.js",
+    "cli": "node src/cli.js",
+    "mcp": "node src/mcp-server.js",
+    "test": "node test/run-live-test.js"
+  },
+  "keywords": [
+    "kyb",
+    "compliance",
+    "gleif",
+    "lei-lookup",
+    "vies-vat-validator",
+    "sec-edgar",
+    "vendor-risk",
+    "nis2",
+    "security-headers",
+    "apify-actor",
+    "mcp-server"
+  ],
+  "author": "VeriShield Automated Systems",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

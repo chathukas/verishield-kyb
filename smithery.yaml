@@ -1,0 +1,12 @@
+# Smithery.ai MCP Registry Configuration
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties: {}
+  commandFunction:
+    |-
+    (config) => ({
+      command: 'node',
+      args: ['src/mcp-server.js']
+    })

@@ -1,0 +1,49 @@
+{
+  "actorSpecification": 1,
+  "fields": {
+    "auditId": { "type": "string", "title": "Audit ID" },
+    "vendorName": { "type": "string", "title": "Vendor Name" },
+    "domain": { "type": "string", "title": "Domain" },
+    "overallScore": { "type": "integer", "title": "Compliance Score (0-100)" },
+    "complianceGrade": { "type": "string", "title": "Grade" },
+    "riskLevel": { "type": "string", "title": "Risk Level" },
+    "decisionRecommendation": { "type": "string", "title": "Onboarding Decision" },
+    "lei": { "type": "string", "title": "GLEIF LEI" },
+    "leiStatus": { "type": "string", "title": "LEI Status" },
+    "vatNumber": { "type": "string", "title": "EU VAT Number" },
+    "vatValid": { "type": "boolean", "title": "VIES VAT Valid" },
+    "secCik": { "type": "string", "title": "US SEC CIK" },
+    "securityHeadersGrade": { "type": "string", "title": "NIS2 Headers Grade" },
+    "spfConfigured": { "type": "boolean", "title": "SPF Configured" },
+    "dmarcPolicy": { "type": "string", "title": "DMARC Policy" },
+    "reportFileName": { "type": "string", "title": "Executive HTML Report Key" }
+  },
+  "views": {
+    "overview": {
+      "title": "Vendor KYB & Compliance Overview",
+      "transformation": {
+        "fields": [
+          "auditId",
+          "vendorName",
+          "domain",
+          "overallScore",
+          "complianceGrade",
+          "riskLevel",
+          "decisionRecommendation",
+          "lei",
+          "leiStatus",
+          "vatNumber",
+          "vatValid",
+          "secCik",
+          "securityHeadersGrade",
+          "spfConfigured",
+          "dmarcPolicy",
+          "reportFileName"
+        ]
+      },
+      "display": {
+        "component": "table"
+      }
+    }
+  }
+}

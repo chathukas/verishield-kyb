@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VeriShield KYB — Automated B2B Vendor Registry, Tax & NIS2/EAA Compliance Engine</title>
+  <meta name="description" content="Verify B2B vendors across GLEIF LEI, EU VIES VAT, US SEC EDGAR, HHS NPPES NPI, and NIS2/GDPR/EAA domain compliance in one API call, MCP tool, or CLI batch run." />
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card: #111827;
+      --border: #1f2937;
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --accent: #3b82f6;
+      --accent-hover: #2563eb;
+      --emerald: #10b981;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .badge {
+      background: rgba(59, 130, 246, 0.15);
+      color: #60a5fa;
+      border: 1px solid rgba(59, 130, 246, 0.35);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .hero {
+      padding: 72px 0 56px;
+      text-align: center;
+    }
+    h1 {
+      font-size: clamp(32px, 5vw, 52px);
+      line-height: 1.12;
+      margin: 16px 0 20px;
+      letter-spacing: -0.03em;
+    }
+    .lead {
+      max-width: 740px;
+      margin: 0 auto 32px;
+      font-size: 18px;
+      color: var(--muted);
+    }
+    .cta-row {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      padding: 14px 26px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 15px;
+      transition: 0.15s ease;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-primary:hover { background: var(--accent-hover); }
+    .btn-outline {
+      border: 1px solid #374151;
+      color: var(--text);
+      background: #1f2937;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin: 48px 0;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+    }
+    .card h3 {
+      margin-top: 0;
+      font-size: 19px;
+    }
+    .price {
+      font-size: 36px;
+      font-weight: 800;
+      margin: 12px 0 4px;
+    }
+    .price span {
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 400;
+    }
+    ul.features {
+      padding-left: 18px;
+      color: #d1d5db;
+      font-size: 14.5px;
+    }
+    ul.features li { margin-bottom: 8px; }
+    pre {
+      background: #030712;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      overflow-x: auto;
+      font-size: 13px;
+      color: #a7f3d0;
+      text-align: left;
+    }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 0;
+      margin-top: 64px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo">🛡️ VeriShield KYB <span class="badge">v1.0 • API + MCP + CLI</span></div>
+      <div>
+        <a href="#pricing" class="btn btn-outline" style="padding:8px 16px;font-size:13px;">Self-Serve Pricing</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <span class="badge">GLEIF LEI • EU VIES VAT • US SEC EDGAR • HHS NPI • NIS2 &amp; EAA Signals</span>
+      <h1>Automated B2B Vendor KYB &amp; Compliance Audits in One Call</h1>
+      <p class="lead">
+        Stop stitching together 6 separate government registries and security scanners. Verify legal entity status, cross-border EU VAT, SEC filings, email anti-spoofing (SPF/DMARC), NIS2 security headers, and EU EAA/GDPR signals with instant White-Label Executive HTML Certificates.
+      </p>
+      <div class="cta-row">
+        <a href="#pricing" class="btn btn-primary">Run Cloud Actor on Apify ($3 / 1k Vendors)</a>
+        <a href="#pricing" class="btn btn-outline">Download Offline CLI &amp; White-Label Agency Pack ($29)</a>
+      </div>
+    </section>
+
+    <section>
+      <pre><code>// 1-Command CLI or MCP Agent Execution:
+$ npx verishield-kyb --company "Siemens AG" --domain "siemens.com" --vat "DE129273398"
+
+✓ Audited: Siemens Aktiengesellschaft [Audit ID: VS-8F92A1B0]
+  Overall Score: 100/100 (Grade A+) — AUTO_APPROVE_ELIGIBLE
+  + Verified Active Global LEI (W38RGI023J3WT1HWRP32) — Jurisdiction: DE (HRB 6684)
+  + Validated EU VIES VAT (DE129273398) — Siemens AG
+  + SPF (-all) &amp; Enforced DMARC (p=reject) Anti-Phishing Verified
+  + NIS2 HTTP Security Headers Grade A+ (HSTS, CSP, X-Frame-Options, nosniff, Referrer-Policy)
+  + Executive White-Label HTML Certificate generated in 38ms</code></pre>
+    </section>
+
+    <section id="pricing">
+      <h2 style="text-align:center;margin-top:64px;font-size:30px;">Self-Service Channels — Zero Sales Calls Required</h2>
+      <div class="grid-3">
+        <div class="card">
+          <span class="badge">Pay-Per-Event Cloud API &amp; MCP</span>
+          <h3>Apify Store Cloud Actor</h3>
+          <div class="price">$3.00 <span>/ 1,000 verified vendors</span></div>
+          <p style="color:var(--muted);font-size:14px;">Ideal for automated n8n, Make, Zapier, and Claude/Cursor MCP agent pipelines.</p>
+          <ul class="features">
+            <li>Zero monthly subscription commitment</li>
+            <li>Hosted REST API &amp; Dataset exports (JSON, CSV, Excel)</li>
+            <li>Native Apify MCP Server (<code>mcp.apify.com</code>) integration</li>
+            <li>Automatic Executive HTML Report storage ($0.005/report)</li>
+          </ul>
+          <a href="https://apify.com/store" class="btn btn-primary" style="width:100%;text-align:center;margin-top:12px;">Launch on Apify Store</a>
+        </div>
+
+        <div class="card" style="border-color:var(--accent);">
+          <span class="badge">Most Popular • Instant Download</span>
+          <h3>Developer CLI &amp; n8n Pack</h3>
+          <div class="price">$29 <span>one-time license</span></div>
+          <p style="color:var(--muted);font-size:14px;">Run unlimited local KYB &amp; domain audits on your own infrastructure with zero per-lookup fees.</p>
+          <ul class="features">
+            <li>Full Node.js ESM Source Code &amp; Standalone CLI</li>
+            <li>Local MCP Server for Claude Desktop &amp; Cursor</li>
+            <li>Pre-built n8n Vendor Onboarding Workflow JSON</li>
+            <li>GitHub Actions Weekly Compliance Cron Blueprint</li>
+          </ul>
+          <a href="#checkout-starter" class="btn btn-primary" style="width:100%;text-align:center;margin-top:12px;">Buy Instant Download ($29)</a>
+        </div>
+
+        <div class="card">
+          <span class="badge">For Compliance Consultancies &amp; Agencies</span>
+          <h3>White-Label Agency Edition</h3>
+          <div class="price">$79 <span>one-time commercial license</span></div>
+          <p style="color:var(--muted);font-size:14px;">Generate branded Executive KYB &amp; NIS2/EAA Audit Certificates for your B2B clients.</p>
+          <ul class="features">
+            <li>Everything in Developer CLI &amp; n8n Pack</li>
+            <li>Custom Agency Brand Name &amp; Subtitle on all HTML/PDF Certificates</li>
+            <li>Unlimited client domain &amp; supplier batch runs</li>
+            <li>Commercial redistribution rights for client audit deliverables</li>
+          </ul>
+          <a href="#checkout-agency" class="btn btn-outline" style="width:100%;text-align:center;margin-top:12px;">Buy Agency License ($79)</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      VeriShield KYB &amp; Compliance Intelligence • Automated Multi-Registry Verification Engine • Powered by Official GLEIF, EU VIES, SEC EDGAR &amp; NPPES APIs.
+    </div>
+  </footer>
+</body>
+</html>

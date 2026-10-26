@@ -1,0 +1,83 @@
+{
+  "name": "VeriShield Automated B2B Vendor KYB & Compliance Onboarding Pipeline",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "vendor-kyb-intake",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "id": "webhook-intake",
+      "name": "Vendor Onboarding Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apify.com/v2/acts/verishield~verishield-kyb-compliance-engine/run-sync-get-dataset-items",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{$env.APIFY_API_TOKEN}}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"vendors\": [\n    {\n      \"companyName\": \"{{$json.body.companyName}}\",\n      \"domain\": \"{{$json.body.domain}}\",\n      \"vatNumber\": \"{{$json.body.vatNumber}}\",\n      \"lei\": \"{{$json.body.lei}}\",\n      \"ticker\": \"{{$json.body.ticker}}\"\n    }\n  ],\n  \"generateHtmlReport\": true\n}"
+      },
+      "id": "apify-verishield-kyb",
+      "name": "Run VeriShield KYB Actor",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [500, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{$json.overallScore}}",
+              "operation": "largerEqual",
+              "value2": 80
+            }
+          ]
+        }
+      },
+      "id": "score-router",
+      "name": "Compliance Score >= 80 (Auto-Approve?)",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [760, 300]
+    }
+  ],
+  "connections": {
+    "Vendor Onboarding Webhook": {
+      "main": [
+        [
+          {
+            "node": "Run VeriShield KYB Actor",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Run VeriShield KYB Actor": {
+      "main": [
+        [
+          {
+            "node": "Compliance Score >= 80 (Auto-Approve?)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

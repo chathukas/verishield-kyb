@@ -1,0 +1,28 @@
+name: VeriShield Automated Health & Registry Uptime Monitor
+
+on:
+  schedule:
+    # Runs automatically every day at 06:00 UTC to verify upstream APIs (GLEIF, VIES, SEC, NPPES) and test suite
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+jobs:
+  verify-engine-health:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout VeriShield Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Run Automated Verification & Live Registry Canary
+        run: npm test
+
+      - name: Upload Generated Sample Compliance Certificate Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: verishield-sample-compliance-certificates
+          path: output/*.html
